@@ -146,6 +146,8 @@ class Agent {
         key: configuration.key,
         passphrase: configuration.passphrase,
         pfx: configuration.pfx,
+        // rejectUnauthorized should be "true" by default, unless NODE_TLS_REJECT_UNAUTHORIZED environment variable is set to '0'
+        // (cf. https://nodejs.org/api/cli.html#cli_node_tls_reject_unauthorized_value )
         rejectUnauthorized: configuration.rejectUnauthorized || (process.env.NODE_TLS_REJECT_UNAUTHORIZED !== '0'),
         secureOptions: configuration.secureOptions,
         secureProtocol: configuration.secureProtocol,
